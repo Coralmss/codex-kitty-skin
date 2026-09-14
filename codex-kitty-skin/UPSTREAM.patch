@@ -1,0 +1,89 @@
+diff --git a/runtime/dream-skin.css b/runtime/dream-skin.css
+index 19436b8..96ad53b 100644
+--- a/runtime/dream-skin.css
++++ b/runtime/dream-skin.css
+@@ -806,22 +806,33 @@ html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ __DREAM_SELECTOR_GA
+ }
+ 
+ html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ __DREAM_SELECTOR_GAME_SOURCE__ button {
+-  margin: 0 5px;
+-  padding: 2px 9px 3px;
+-  border: 1px solid rgb(var(--ds-accent-rgb) / .36);
+-  border-radius: 999px;
+-  background: rgb(var(--ds-accent-rgb) / .10);
++  margin: 0 3px;
++  padding: 0 2px 2px;
++  border: 0 !important;
++  border-radius: 4px;
++  background: transparent !important;
++  box-shadow: none !important;
+   color: var(--ds-accent) !important;
+-  text-decoration-color: rgb(var(--ds-accent-rgb) / .56) !important;
+-  text-underline-offset: 5px;
++  font: inherit;
++  vertical-align: baseline;
++  text-decoration-line: underline !important;
++  text-decoration-thickness: 1px;
++  text-decoration-color: rgb(var(--ds-accent-rgb) / .32) !important;
++  text-underline-offset: .17em;
+ }
+ 
++/* The native project name already reads naturally inside the greeting. */
+ html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ __DREAM_SELECTOR_GAME_SOURCE__ button::before {
+-  content: var(--dream-skin-project-prefix, "选择项目 · ");
+-  font-size: .46em;
+-  font-weight: 700;
+-  vertical-align: middle;
+-  opacity: .86;
++  content: none;
++}
++
++html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ __DREAM_SELECTOR_GAME_SOURCE__ button:hover {
++  text-decoration-color: rgb(var(--ds-accent-rgb) / .72) !important;
++}
++
++html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ __DREAM_SELECTOR_GAME_SOURCE__ button:focus-visible {
++  outline: 2px solid rgb(var(--ds-accent-rgb) / .55);
++  outline-offset: 3px;
+ }
+ 
+ html[data-dream-skin="active"] __DREAM_SELECTOR_HOME_ROUTE__ > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+@@ -1404,23 +1415,32 @@ html[data-dream-skin="active"] button[class~="bg-token-foreground"] {
+ }
+ 
+ /* Current send, stop, and voice actions do not consistently retain the old
+-   foreground utility. Keep their icons on the computed accent foreground. */
++   foreground utility. Codex 26.908 uses bg-composer-primary for the shared
++   action, including localized steer/queue states. Keep its icon on-accent. */
+ html[data-dream-skin="active"] __DREAM_SELECTOR_COMPOSER_CHROME__
+-  :is(button[class~="bg-primary-solid"], button[aria-label="发送"], button[aria-label="停止"], button[aria-label*="语音"], button[aria-label*="对话"], button[aria-label*="send" i], button[aria-label*="stop" i], button[aria-label*="voice" i]) {
+-  border-color: rgb(var(--ds-text-rgb) / .46) !important;
++  :is(button[class~="bg-composer-primary"], button[class~="bg-primary-solid"], button[aria-label="发送"], button[aria-label="停止"], button[aria-label*="语音"], button[aria-label*="对话"], button[aria-label*="send" i], button[aria-label*="stop" i], button[aria-label*="voice" i]) {
++  border-color: rgb(var(--ds-accent-rgb) / .22) !important;
+   background: var(--ds-accent) !important;
+   color: var(--ds-on-accent) !important;
+   box-shadow:
+-    0 5px 16px rgb(var(--ds-bg-rgb) / .24),
+-    inset 0 1px rgb(var(--ds-text-rgb) / .42) !important;
++    0 3px 10px rgb(var(--ds-accent-rgb) / .16),
++    inset 0 1px rgb(var(--ds-panel-rgb) / .28) !important;
+ }
+ 
+ html[data-dream-skin="active"] __DREAM_SELECTOR_COMPOSER_CHROME__
+-  :is(button[class~="bg-primary-solid"], button[aria-label="发送"], button[aria-label="停止"], button[aria-label*="语音"], button[aria-label*="对话"], button[aria-label*="send" i], button[aria-label*="stop" i], button[aria-label*="voice" i]) * {
++  :is(button[class~="bg-composer-primary"], button[class~="bg-primary-solid"], button[aria-label="发送"], button[aria-label="停止"], button[aria-label*="语音"], button[aria-label*="对话"], button[aria-label*="send" i], button[aria-label*="stop" i], button[aria-label*="voice" i]) * {
+   color: currentColor !important;
+   opacity: 1 !important;
+ }
+ 
++/* Keep modern primary actions distinct from the generic toolbar hover wash. */
++html[data-dream-skin="active"] __DREAM_SELECTOR_COMPOSER_CHROME__
++  button[class~="bg-composer-primary"]:hover {
++  background: var(--ds-accent) !important;
++  color: var(--ds-on-accent) !important;
++  box-shadow: 0 4px 12px rgb(var(--ds-accent-rgb) / .24) !important;
++}
++
+ html[data-dream-skin="active"] article,
+ html[data-dream-skin="active"] [data-ds-part="message"] { border-radius: 16px; }
+ 

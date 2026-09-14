@@ -2,7 +2,8 @@
 
 把 Codex 换成奶油粉、草莓和 Hello Kitty 的温柔小房间。背景、玫瑰粉按钮、白色发送图标、柔和输入框与简洁项目选择样式一起提供，并附可选毛绒 Kitty 宠物。
 
-![主题背景](preview.png)
+![Uploading image.png…]()
+
 
 ## 让你的 AI 帮你安装
 
